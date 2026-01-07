@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Log in Khobey</title>
+
+<style>
+body{
+  font-family: monospace;
+  background:#0f0f0f;
+  color:#e0e0e0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.box{
+  background:#111;
+  padding:30px;
+  width:300px;
+  border-radius:8px;
+}
+h2{
+  text-align:center;
+}
+input, button{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  font-family:monospace;
+}
+button{
+  background:#00ffcc;
+  border:none;
+  cursor:pointer;
+}
+#msg{
+  text-align:center;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Log in Khobey</h2>
+
+  <!-- Email OR Phone -->
+  <input type="text" id="user" placeholder="Email or Phone">
+
+  <!-- Password -->
+  <input type="password" id="pass" placeholder="Password">
+
+  <button onclick="login()">Log in</button>
+
+  <p id="msg"></p>
+</div>
+
+<script>
+function login(){
+  let user = document.getElementById("user").value;
+  let pass = document.getElementById("pass").value;
+
+  if(user === "" || pass === ""){
+    document.getElementById("msg").innerText = "Fill all fields ❌";
+    document.getElementById("msg").style.color = "red";
+    return;
+  }
+
+  // demo login success
+  localStorage.setItem("loggedIn","yes");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
